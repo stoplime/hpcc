@@ -29,14 +29,14 @@ RmDuplicate := DEDUP(SortedPersons, LastName, FirstName);
 // OUTPUT(RmDuplicate);
 
 // Remove Records with no birth dates
-RmBirthDateless := RmDuplicate(BirthDate != ''):PERSIST('CLASS::SL::PERSIST::PREPROCESSED');
+EXPORT assignment7 := RmDuplicate(BirthDate != ''):PERSIST('CLASS::SL::PERSIST::PREPROCESSED');
 // OUTPUT(RmBirthDateless);
 
 // Output all male persons who live in us states beginning with 'M' and who were born after 1979
-Selection := RmBirthDateless(Gender = 'M', State >= 'M', State < 'N', BirthDate > '1979');
+// Selection := RmBirthDateless(Gender = 'M', State >= 'M', State < 'N', BirthDate > '1979');
 // OUTPUT(Selection);
 
 // Ratio of males before 1980 who lives in a state startnig with M
-AllBefore1980 := RmBirthDateless(Gender = 'M', BirthDate < '1980');
-StartWithM := AllBefore1980(State >= 'M', State < 'N');
-OUTPUT(COUNT(StartWithM)/COUNT(AllBefore1980));
+// AllBefore1980 := RmBirthDateless(Gender = 'M', BirthDate < '1980');
+// StartWithM := AllBefore1980(State >= 'M', State < 'N');
+// OUTPUT(COUNT(StartWithM)/COUNT(AllBefore1980));
